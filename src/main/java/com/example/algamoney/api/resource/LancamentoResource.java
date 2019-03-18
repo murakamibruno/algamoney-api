@@ -64,10 +64,12 @@ public class LancamentoResource {
 
 	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_LANCAMENTO') and #oauth2.hasScope('read')")
 	@GetMapping("/{codigo}")
-	public ResponseEntity<? extends Object> buscarPeloCodigo(@PathVariable Long codigo) {
+	public ResponseEntity<Lancamento> buscarPeloCodigo(@PathVariable Long codigo) {
 		Lancamento lancamento = lancamentoRepository.getOne(codigo);
 		return lancamento != null ? ResponseEntity.ok(lancamento) : ResponseEntity.notFound().build();
 	}
+
+
 
 	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_LANCAMENTO') and #oauth2.hasScope('write')")
 	@PostMapping
