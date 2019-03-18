@@ -67,7 +67,7 @@ public class AlgamoneyExceptionHandler extends ResponseEntityExceptionHandler {
 	}
 
 	private List<Erro> criarListaDeErros(BindingResult bindingResult) {
-		List<Erro> erros = new ArrayList<>();
+		List<Erro> erros = new ArrayList<Erro>();
 
 		for (FieldError fieldError : bindingResult.getFieldErrors()) {
 			String mensagemUsuario = messageSource.getMessage(fieldError, LocaleContextHolder.getLocale());
